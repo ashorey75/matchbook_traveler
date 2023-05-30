@@ -1,0 +1,31 @@
+<h1>Cities</h1>
+<br>
+<br>
+<ul>
+  <% if @cities.first.nil? %>
+    <p>No cities available</p>
+  <% end %>
+  <% @cities.each do |city| %>
+  <li><h2><a href='/cities/<%= city[:id] %>'><%= city[:city_name] %></a></h2></li>
+  <br>
+  <% end %>
+</ul>
+
+
+
+<% content_for :header_links do %>
+  <a class="add" href='/add_city'>Add City</a>
+<% end %>
+
+<p>
+<% if (((@page) + 1) * 10) > 10 %>
+  <a href="/cities?page=<%= @page - 1 %>">Previous</a>
+<% end %> 
+
+[Page <%= @page + 1 %>]
+
+<% if ((@page + 1) * 10) < @total_cities %>
+  <a href="/cities?page=<%= @page + 1 %>">Next</a>
+<% end %>
+</p>
+

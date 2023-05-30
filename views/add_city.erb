@@ -1,0 +1,15 @@
+<form action="/cities" method="post">
+  <dl>
+    <dt>
+      <label for="city_name">Enter the name for your new city:</label>
+    </dt>
+    <dd>
+      <input name="city_name" placeholder="City Name" type="text" value="<%= params[:city_name] %>">
+    </dd>
+  </dl>
+  <fieldset class="actions">
+    <input type="submit" value="Save">
+    <a href="/cities">Cancel</a>
+  </fieldset>
+</form>
+

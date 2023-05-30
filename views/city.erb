@@ -1,0 +1,53 @@
+<section id="todos" >
+
+  <header>
+    <h2><%= @city[:city_name] %></h2>
+    <ul>
+      <li><a class="edit" href="/cities/<%= @city[:id] %>/edit">Edit City Name</a></li>
+      <li>
+        <form action="/cities/<%= params[:id] %>/delete_city" method="post">
+          <button class="delete" type="submit">Delete '<%= @city[:city_name] %>'</button>
+        </form>
+      </li>
+    </ul>
+  </header>
+
+
+
+<br>
+  <% if @total_locations == 0 %>
+    <p>No match locations available</p>
+    
+  <% else %>
+    <% @locations.each do |x| %>
+      <header><h3><a href='/cities/<%= params[:id] %>/match_locations/<%= x[:id] %>'><%= x[:location_name] %></a></h3></header><ul><li><%= x[:address].strip %>, <%= x[:neighborhood].strip %><br><%= custom_match?(x[:custom_matchbook]) %></li></ul>
+    <% end %>
+  
+    <p>
+      <% if (((@page) + 1) * 10) > 10 %>
+        <a href="/cities/<%= @city[:id] %>?page=<%= @page - 1 %>">Previous</a>
+      <% end %> 
+  
+      [Page <%= @page + 1 %>]
+  
+      <% if ((@page + 1) * 10) < @total_locations %>
+        <a href="/cities/<%= @city[:id] %>?page=<%= @page + 1 %>">Next</a>
+      <% end %>
+    </p>
+
+    
+  <% end %>
+  
+</section>
+
+
+  
+
+
+
+
+
+<% content_for :header_links do %>
+  <h3><a class="add" href='/cities/<%= params[:id] %>/match_location/add'>Add New Match Location</a></h3>
+<% end %>
+

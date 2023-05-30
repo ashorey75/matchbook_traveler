@@ -1,0 +1,28 @@
+<% content_for :header_links do %>
+  <h3><form action="/cities/<%= params[:id] %>/match_locations/<%= params[:match_id] %>/delete" method="post">
+  
+  <fieldset class="actions">
+    <input type="submit" value="Delete '<%= @locations[:location_name] %>'">
+  </fieldset>
+</form></h3>
+<% end %>
+
+
+
+<section id="todos" >
+
+  <header>
+    <h2><%= @locations[:location_name] %></h2>
+    <ul>
+      <li><a class="edit" href="/cities/<%= params[:id] %>/match_locations/<%= params[:match_id] %>/edit">Edit Location</a></li>
+    </ul>
+  </header>
+  
+  <ul>
+    <li><%=@locations[:address]%>, <%= @locations[:neighborhood] %></li> 
+    <% if @locations[:custom_matchbook] == 't' %>
+      <li><%= custom_match?(@locations[:custom_matchbook]) %></li>
+    <% end %>
+  </ul>
+</section>
+

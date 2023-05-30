@@ -1,0 +1,23 @@
+<form action="/cities/<%= params[:id] %>/match_location/add" method="post">
+  <dl>
+    <dt>
+      <label for="location_name">Enter a new match location:</label>
+    </dt>
+    <dd>
+      <input name="location_name" placeholder="Location Name ex.(Madison Square Garden)" type="text" value="<%= params[:location_name] %>">
+    </dd>
+    <dd>
+      <input name="address" placeholder="Street ex.(4 Pennsylvania Plaza)" type="text" value="<%= params[:address] %>">
+    </dd>
+    <dd>
+      <input name="neighborhood" placeholder="Neighborhood ex.(Midtown)" type="text" value="<%= params[:neighborhood] %>">
+    </dd>
+    <dd>
+      <input name="custom_matchbook" placeholder="Custom matchbooks? (Enter Y or N)" type="text" value="<%= params[:custom_matchbook] %>">
+    </dd>
+  </dl>
+  <fieldset class="actions">
+    <input type="submit" value="Add">
+  </fieldset>
+</form>
+

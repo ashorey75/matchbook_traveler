@@ -1,0 +1,23 @@
+<form action="/new_user" method="post">
+  <dl>
+      
+    <dt>
+      <label for="username">Create username:</label>
+    </dt>
+    <dd>
+      <input name="username" placeholder="Username" type="text" value="<%= params[:username] %>">
+    </dd>
+    
+    <dt>
+      <label for="password">Create password:</label>
+    </dt>
+    <dd>
+      <input name="password" placeholder="Password" type="password" value="<%= params[:password] %>">
+    </dd>
+    
+  </dl>
+  <fieldset class="actions">
+    <input type="submit" value="Sign up">
+  </fieldset>
+</form>
+
